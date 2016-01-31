@@ -4,7 +4,7 @@ from .models import Post
 from .forms import PostForm
 from django.shortcuts import redirect
 from django.contrib.auth.decorators import login_required
-from .forms import PostForm, CommentForm
+from .forms import PostForm, CommentForm, ContactForm
 
 def post_list(request):
     posts = Post.objects.filter(published_date__lte=timezone.now()).order_by('published_date')
@@ -77,3 +77,6 @@ def comment_remove(request, pk):
     post_pk = comment.post.pk
     comment.delete()
     return redirect('blog.views.post_detail', pk=post_pk)
+def contact(request):
+    form_class = ContactForm
+    return render(request,'blog/contact.html', {'form': form_class,})
