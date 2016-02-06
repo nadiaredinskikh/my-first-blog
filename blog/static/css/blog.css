@@ -86,7 +86,7 @@ body {
     background-color: #fff !important;
 }
 
-.navbar-default .navbar-toggle {
+.navbar-inner {
     border-color: transparent;
     color: #fff !important;
 }
