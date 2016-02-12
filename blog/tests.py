@@ -1,3 +1,10 @@
-from django.test import TestCase
+from django.test import TestCase, Client
+from blog.models import Post
 
-# Create your tests here.
+
+class HomePageTest(TestCase):
+	def test_homepage_available(self):
+		c = Client()
+		response = c.get('/')
+		self.assertEquals(response.status_code, 200)
+	
